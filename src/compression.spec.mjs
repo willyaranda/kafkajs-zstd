@@ -1,4 +1,4 @@
-const ZstdCodec = require("./index");
+import ZstdCodec from "./index.mjs";
 
 const encoder = {
   buffer: Buffer.from(
@@ -8,9 +8,7 @@ const encoder = {
 
 describe("Compression", () => {
   it("Compresses the payload", async () => {
-    const codec = ZstdCodec()();
-
-    const compressed = await codec.compress(encoder);
+    const compressed = await ZstdCodec.compress(encoder);
 
     expect(Buffer.byteLength(compressed)).toBeLessThan(
       Buffer.byteLength(encoder.buffer),
@@ -18,9 +16,10 @@ describe("Compression", () => {
   });
 
   it("Can decompress the compressed payload", async () => {
-    const codec = ZstdCodec()();
-    const compressed = await codec.compress(encoder);
+    const compressed = await ZstdCodec.compress(encoder);
+    console.log(compressed);
+    console.log(encoder.buffer);
 
-    expect(await codec.decompress(compressed)).toEqual(encoder.buffer);
+    expect(await ZstdCodec.decompress(compressed)).toEqual(encoder.buffer);
   });
 });

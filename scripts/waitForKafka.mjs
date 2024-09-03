@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
-const execa = require("execa");
-const crypto = require("crypto");
+import { execa } from "execa";
+import { randomBytes } from "node:crypto";
 
-const secureRandom = (length = 10) =>
-  crypto.randomBytes(length).toString("hex");
+const secureRandom = (length = 10) => randomBytes(length).toString("hex");
 
 const findContainerId = (node) => {
   const cmd = `

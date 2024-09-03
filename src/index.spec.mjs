@@ -1,13 +1,9 @@
-jest.setTimeout(10000);
+import KafkaJS from "kafkajs";
 
-const {
-  Kafka,
-  CompressionTypes,
-  CompressionCodecs,
-  logLevel,
-} = require("kafkajs");
-const waitFor = require("kafkajs/src/utils/waitFor");
-const ZstdCodec = require("./index");
+const { Kafka, CompressionTypes, CompressionCodecs, logLevel } = KafkaJS;
+
+import waitFor from "kafkajs/src/utils/waitFor";
+import ZstdCodec from "./index.mjs";
 
 const TOPIC_NAME = "topic-test";
 const MESSAGE = {
@@ -24,7 +20,7 @@ describe("Zstd Codec", () => {
   let kafka, producer, consumer;
 
   beforeAll(() => {
-    CompressionCodecs[CompressionTypes.ZSTD] = ZstdCodec();
+    CompressionCodecs[CompressionTypes.ZSTD] = () => ZstdCodec;
 
     kafka = new Kafka({
       brokers: ["localhost:9092"],
@@ -68,4 +64,4 @@ describe("Zstd Codec", () => {
     expect(message.key).toEqual(MESSAGE.key);
     expect(message.value).toEqual(MESSAGE.value);
   });
-});
+}, 20000);
