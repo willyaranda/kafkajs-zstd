@@ -28,7 +28,7 @@ jobs:
     - name: Lint
       run: npm run lint
     - name: Run Kafka
-      run: docker-compose up -d
+      run: docker compose up -d
     - name: Wait for dependencies
       run: node scripts/waitForKafka.js
     - name: Run tests

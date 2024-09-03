@@ -62,7 +62,7 @@ waitForNode(kafkaContainerId);
 console.log("\nKafka up:");
 console.log(
   execa
-    .commandSync(`docker-compose ps`, {
+    .commandSync(`docker compose ps`, {
       shell: true,
     })
     .stdout.toString("utf-8"),
