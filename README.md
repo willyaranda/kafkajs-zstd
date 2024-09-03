@@ -63,7 +63,7 @@ CompressionCodecs[CompressionTypes.ZSTD] = ZstdCodec(compressionParams, decompre
 ## Testing
 
 ```sh
-$ docker compose up -d && node scripts/waitForKafka.js
+$ docker compose up -d && node --experimental-vm-modules scripts/waitForKafka.js
 $ npm test
 
 # Interactive mode
