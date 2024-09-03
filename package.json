@@ -17,6 +17,7 @@
   "engines": {
     "node": ">=20.0.0"
   },
+  "type": "module",
   "keywords": [
     "zstd",
     "compression",
@@ -42,7 +43,8 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
-    "cppzst": "2.0.12"
+    "cppzst": "2.0.12",
+    "zstd-codec": "^1.0.0"
   },
   "funding": "https://github.com/sponsors/Nevon/",
   "publishConfig": {
