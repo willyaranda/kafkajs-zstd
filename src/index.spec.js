@@ -48,7 +48,7 @@ describe("Zstd Codec", () => {
       compression: CompressionTypes.ZSTD,
       messages: [MESSAGE],
     });
-  });
+  }); 
 
   test("consumer", async () => {
     await producer.connect();
