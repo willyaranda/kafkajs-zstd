@@ -65,7 +65,7 @@ console.log(
     .commandSync(`docker-compose ps`, {
       shell: true,
     })
-    .stdout.toString("utf-8")
+    .stdout.toString("utf-8"),
 );
 
 console.log("\nCreating default topics...");
