@@ -27,7 +27,7 @@ jobs:
     - name: Run Kafka
       run: docker compose up -d
     - name: Wait for dependencies
-      run: node scripts/waitForKafka.cjs
+      run: node scripts/waitForKafka.mjs
     - name: Run tests
       run: npm test
     - name: Verify types
