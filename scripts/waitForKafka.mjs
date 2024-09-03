@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { execa } from "execa";
+import execa from "execa";
 import { randomBytes } from "node:crypto";
 
 const secureRandom = (length = 10) => randomBytes(length).toString("hex");
